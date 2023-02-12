@@ -1,10 +1,47 @@
-import uaslp.objetos.list.LinkedList;
-import uaslp.objetos.list.LinkedListIterator;
-//import uaslp.objetos.list.Node;
-
+import uaslp.objetos.list.linkedlist.Node;
+import uaslp.objetos.list.linkedlist.LinkedList;
+import uaslp.objetos.list.linkedlist.LinkedListIterator;
+import uaslp.objetos.list.arraylist.ArrayList;
+import uaslp.objetos.list.arraylist.ArrayListIterator;
 public class Main {
     public static void main(String[] args) {
-        LinkedList linkedList=new LinkedList();
+        ArrayList lista= new ArrayList();
+        lista.addAtTail("hola");//F8 debugeo
+        lista.addAtTail("adios");//stack trace indica en que linea es posiblemente el error
+        lista.addAtTail("adios2");
+        lista.addAtTail("Kagabonga");
+        lista.addAtTail("Yo ser tu padre");
+        System.out.println(lista.getSize());
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+        System.out.println("-------------------");
+        lista.setAt(2,"no se que hago");
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+        System.out.println("-------------------");
+
+        lista.remove(4);
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+        System.out.println("-------------------");
+        lista.removeAllWithValue("adios");
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+        System.out.println("-------------------");
+        lista.addAtFront("Minion");
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+        System.out.println("-------------------");
+        lista.removeAll();
+        for(int i=0;i< lista.getSize();i++){
+            System.out.println(lista.getAt(i));
+        }
+       /* LinkedList linkedList=new LinkedList();
         System.out.println(linkedList.getSize());
         LinkedListIterator iterator = linkedList.getIterator();
         while(iterator.hasNext()){
@@ -49,5 +86,8 @@ public class Main {
             System.out.println(i+"  "+linkedList.getAt(i));
         }
         System.out.println("------------");
+
+        */
+
     }
 }

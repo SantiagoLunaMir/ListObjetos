@@ -1,10 +1,10 @@
-package uaslp.objetos.list;
+package uaslp.objetos.list.linkedlist;
 
 public class LinkedList {
     private Node head=null;
     private Node tail=null;
     private int size=0;
-    public void setAt(int index,String data){
+    public void setAt(int index,String data){//
         int i=0;
         Node temp=head;
         while(temp!=null&&i!=index){
