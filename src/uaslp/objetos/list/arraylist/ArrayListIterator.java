@@ -1,12 +1,33 @@
 package uaslp.objetos.list.arraylist;
 
-public class ArrayListIterator {
-    private ArrayList currentArray;
-    ArrayListIterator(ArrayList first){
-        currentArray = first;
+import uaslp.objetos.list.Iterator;
+
+public class ArrayListIterator<H> implements Iterator<H> {
+    private int currentIndex;
+    private final ArrayList<H> list;
+    ArrayListIterator(ArrayList<H> list){
+        this.list=list;
+        currentIndex=0;
     }
-    public boolean hasLeghtYet(){
-        return currentArray!=null;
+    ArrayListIterator(ArrayList<H> list, int index){
+        this.list = list;
+        currentIndex = index;
     }
-    //creo que el string que se usaba en las listas no es necesario, debido al private String []array;
+    public boolean hasNext(){
+        return currentIndex<list.getSize();
+    }
+    public H next() {
+        H data= (H) list.getAt(currentIndex);
+        currentIndex++;
+        return data;
+    }
+    public boolean hasPrevious() {
+        return currentIndex >= 0;
+    }
+
+    public H previous() {
+        H data = list.getAt(currentIndex);
+        currentIndex--;
+        return data;
+    }
 }
