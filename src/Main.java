@@ -25,6 +25,7 @@ public class Main {
         lista1.addAtTail("E");
         printA(lista1);
         lista1.setAt(1,"I");
+        System.out.println(lista1.getIterator());
         printA(lista1);
         lista1.remove(4);
         printA(lista1);
@@ -42,8 +43,9 @@ public class Main {
         lista2.addAtTail("E");
         printA(lista2);
         lista2.setAt(1,"I");
+        System.out.println(lista2.getIterator());
         printA(lista2);
-        lista1.remove(4);
+        lista2.remove(4);
         printA(lista2);
         lista2.removeAllWithValue("B");
         printA(lista2);
