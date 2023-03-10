@@ -1,21 +1,21 @@
-import uaslp.objetos.list.Iterator;
 //import uaslp.objetos.list.linkedlist.Node;
 import uaslp.objetos.list.linkedlist.LinkedList;
 import uaslp.objetos.list.linkedlist.LinkedListIterator;
 import uaslp.objetos.list.arraylist.ArrayList;
 import uaslp.objetos.list.arraylist.ArrayListIterator;
 import uaslp.objetos.list.List;
-
+//import java.util.Iterator;
 import java.util.ListIterator;
+import uaslp.objetos.list.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-        List lista1= new ArrayList<>();//se ha vuelto generico y funciona con ambos
-        List<String> lista2=new LinkedList<>();
+        List lista1= new ArrayList();//se ha vuelto generico y funciona con ambos
+        List lista2=new LinkedList();
         lista1.addAtTail("I");
         //lista.addAtTail(50);//int integer (wrapper classes) convierte los primitivos a wrapper class, ya se validaron
         //lista.addAtTail(new LinkedList());//Generics List<Integer>, ya se validaron con <String>
-        Object object= lista1.getAt(0);//conservar el tipado para que sea fuerte tipado
+        //Object object= lista1.getAt(0);//conservar el tipado para que sea fuerte tipado
         //si es string
         //((String)object).toUpperCase();//ClassCastException, no se puede hacer el cast pq un integer no puede ser un string
         lista1.addAtTail("A");//F8 debugeo
@@ -55,9 +55,9 @@ public class Main {
         printA(lista2);
     }
     public static void printA(List lista){
-        System.out.println(lista.getSize());
-        for (int i = 0; i < lista.getSize(); i++) {
-            System.out.println(lista.getAt(i));
+        Iterator iterator = lista.getIterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
         }
         System.out.println("-------------------");
     }

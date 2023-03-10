@@ -1,19 +1,20 @@
 package uaslp.objetos.list.arraylist;
 import uaslp.objetos.list.List;
+//import uaslp.objetos.list.linkedlist.Node;
 
-public class ArrayList<T> implements List<T>{
+public class ArrayList implements List{
     private static final int INITIAL_SIZE=2;
     // private Object[] array;//data.lenght para el tam de arreglo
-    private T[] array;
+    private String[] array;
     private int size;//cantidad de datos de arreglo
-    private ArrayList<T> first;
+    private ArrayList first;
     @SuppressWarnings("unchecked")
     public ArrayList(){
-        array = (T[])(new Object[INITIAL_SIZE]);
+        array = (new String[INITIAL_SIZE]);
     }
     @SuppressWarnings("unchecked")
     private void increaseSize(){
-        T[] newArray=(T[])(new Object[array.length*2]);
+        String[] newArray=(new String[array.length*2]);
         System.arraycopy(array, 0, newArray, 0, array.length);//Forma eficiente
         /*for (int i=0;i<array.length;i++){
             newArray[i]=array[i];
@@ -26,38 +27,42 @@ public class ArrayList<T> implements List<T>{
     public int getSize(){
         return size;
     }
-    public T getAt(int index){
-        return (T)array[index];
+    public String getAt(int index){
+        return array[index];
     }
-    public void addAtTail(T data){
+    public void addAtTail(String data){
         if(size== array.length){
             increaseSize();
         }
         array[size]=data;
         size ++;
     }
-    public void addAtFront(T data){
+    public void addAtFront(String data){
 
         if(size== array.length) {
             increaseSize();
         }
 
-        ArrayListIterator<T> iterator = getIteratorAt(size-1);
+        ArrayListIterator iterator = getIteratorAt(size-1);
         int currentIndex = size;
 
         while(iterator.hasPrevious()) {
-            array[currentIndex] = iterator.previous();
+            array[currentIndex] = String.valueOf(iterator.previous());
             currentIndex--;
         }
 
         array[0] = data;
         size++;
     }
-    public void  setAt(int index,T data){
+    public void  setAt(int index,String data){
         if(index<=array.length){
-            array[index]=data;
+            array[index]= data;
         }
     }
+
+
+
+
     public void removeAll(){
         size=0;
         for (int i=0;array[i]!=null;i++){
@@ -66,7 +71,7 @@ public class ArrayList<T> implements List<T>{
         System.out.println("Eliminado todo el arreglo");
         size=0;
     }
-    public void removeAllWithValue(T data){
+    public void removeAllWithValue(String data){
         boolean found=false;
         for(int i=0;i<array.length;i++){
             if(array[i]!=null){
@@ -92,10 +97,11 @@ public class ArrayList<T> implements List<T>{
         array[index]=null;
         size --;
     }
-    public ArrayListIterator<T> getIterator(){
-        return new ArrayListIterator<>(this);
+
+    public ArrayListIterator getIterator(){
+        return new ArrayListIterator(this);
     }
-    private ArrayListIterator<T> getIteratorAt(int index){
-        return new ArrayListIterator<>(this, index);
+    private ArrayListIterator getIteratorAt(int index){
+        return new ArrayListIterator(this, index);
     }
 }

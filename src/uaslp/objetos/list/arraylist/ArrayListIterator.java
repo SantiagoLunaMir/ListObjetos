@@ -1,23 +1,24 @@
 package uaslp.objetos.list.arraylist;
 
+import org.w3c.dom.Node;
 import uaslp.objetos.list.Iterator;
 
-public class ArrayListIterator<H> implements Iterator<H> {
+public class ArrayListIterator implements Iterator {
     private int currentIndex;
-    private final ArrayList<H> list;
-    ArrayListIterator(ArrayList<H> list){
+    private ArrayList list;
+    ArrayListIterator(ArrayList list){
         this.list=list;
         currentIndex=0;
     }
-    ArrayListIterator(ArrayList<H> list, int index){
+    ArrayListIterator(ArrayList list, int index){
         this.list = list;
         currentIndex = index;
     }
     public boolean hasNext(){
         return currentIndex<list.getSize();
     }
-    public H next() {
-        H data= (H) list.getAt(currentIndex);
+    public String next() {
+        String data= list.getAt(currentIndex);
         currentIndex++;
         return data;
     }
@@ -25,8 +26,8 @@ public class ArrayListIterator<H> implements Iterator<H> {
         return currentIndex >= 0;
     }
 
-    public H previous() {
-        H data = list.getAt(currentIndex);
+    public String previous() {
+        String data = list.getAt(currentIndex);
         currentIndex--;
         return data;
     }

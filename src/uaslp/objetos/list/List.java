@@ -3,16 +3,16 @@ package uaslp.objetos.list;
 import uaslp.objetos.list.linkedlist.LinkedListIterator;
 //import uaslp.objetos.list.linkedlist.Node;
 
-public interface List <G> {//Esta T se refiere a esta clase, solo se llama asi por lo genral es un standar
-    void setAt(int index,G data);
+public interface List {//Esta T se refiere a esta clase, solo se llama asi por lo genral es un standar
+    void setAt(int index,String data);
     void removeAll();
-    void removeAllWithValue(G data);
+    void removeAllWithValue(String data);
     void remove(int index);
-    void addAtTail(G data);
-    void addAtFront(G data);
-    G getAt(int index);
+    void addAtTail(String data);
+    void addAtFront(String data);
+    String getAt(int index);
     int getSize();
-    Iterator<G> getIterator();
+    Iterator getIterator();
     boolean isEmpty();
 
 }

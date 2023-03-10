@@ -3,17 +3,17 @@ package uaslp.objetos.list.linkedlist;
 import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.Navigable;
 
-public class LinkedListIterator<K> extends Object implements Iterator<K> {//no se sugiere mas de una interfaz por classe
-    private Node<K> currentNode;
-    LinkedListIterator(Node<K> head){
+public class LinkedListIterator extends Object implements Iterator {//no se sugiere mas de una interfaz por classe
+    private Node currentNode;
+    LinkedListIterator(Node head){
         currentNode=head;
     }
     public boolean hasNext(){
         return currentNode!=null;
     }
-    public K next() {
-        K data = currentNode.data;
-        currentNode = (Node<K>) currentNode.next;
+    public String next() {
+        String data =  currentNode.data;
+        currentNode =  currentNode.next;
         return data;
     }
 
@@ -21,12 +21,12 @@ public class LinkedListIterator<K> extends Object implements Iterator<K> {//no s
         return currentNode != null;
     }
 
-    public Object previous() {
-        Object data = currentNode.data;
-        currentNode = (Node<K>) currentNode.previous;
+    public String previous() {
+        String data = currentNode.data;
+        currentNode = currentNode.previous;
         return data;
     }
-    public Node<K> getCurrentNode() {
+    public Node getCurrentNode() {
         return currentNode;
     }
 }
