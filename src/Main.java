@@ -10,55 +10,36 @@ import uaslp.objetos.list.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-        List lista1= new ArrayList();//se ha vuelto generico y funciona con ambos
-        List lista2=new LinkedList();
-        lista1.addAtTail("I");
-        //lista.addAtTail(50);//int integer (wrapper classes) convierte los primitivos a wrapper class, ya se validaron
-        //lista.addAtTail(new LinkedList());//Generics List<Integer>, ya se validaron con <String>
-        //Object object= lista1.getAt(0);//conservar el tipado para que sea fuerte tipado
-        //si es string
-        //((String)object).toUpperCase();//ClassCastException, no se puede hacer el cast pq un integer no puede ser un string
-        lista1.addAtTail("A");//F8 debugeo
-        lista1.addAtTail("B");//stack trace indica en que linea es posiblemente el error
+        List lista1 = new LinkedList();
+        List lista2 = new ArrayList();
+        System.out.println("------------------------------\n LinkedList:\n");
+        lista1.addAtTail("A");
+        lista1.addAtTail("B");
         lista1.addAtTail("C");
         lista1.addAtTail("D");
-        lista1.addAtTail("E");
-        printA(lista1);
-        lista1.setAt(1,"I");
-        System.out.println(lista1.getIterator());
-        printA(lista1);
-        lista1.remove(4);
-        printA(lista1);
-        lista1.removeAllWithValue("B");
-        printA(lista1);
-        lista1.addAtFront("H");
-        printA(lista1);
+        lista1.addAtFront("Abecedario:");
+        System.out.println("size: "+ lista1.getSize());
+        printList(lista1);
+        System.out.println("------------------------------\n ArrayList:\n");
+        lista2.addAtTail(  "F" );
+        lista2.addAtTail( "G");
+        lista2.addAtTail("H");
+        lista2.addAtFront("E");
+        System.out.println("size: "+ lista2.getSize());
+        printList(lista2);
+        System.out.println("linkedlist en la posicion 3:" + lista1.getAt(3) );
+        System.out.println("arraylist en la posicion 2:" + lista1.getAt(2) );
         lista1.removeAll();
-        printA(lista1);
-        System.out.println("//////////////////////////");
-        lista2.addAtTail("A");
-        lista2.addAtTail("B");
-        lista2.addAtTail("C");
-        lista2.addAtTail("D");
-        lista2.addAtTail("E");
-        printA(lista2);
-        lista2.setAt(1,"I");
-        System.out.println(lista2.getIterator());
-        printA(lista2);
-        lista2.remove(4);
-        printA(lista2);
-        lista2.removeAllWithValue("B");
-        printA(lista2);
-        lista2.addAtFront("H");
-        printA(lista2);
         lista2.removeAll();
-        printA(lista2);
+        System.out.println("la linkedlist ha sido borrada por lo que su tamaño es: " + lista1.getSize());
+        System.out.println("la arraylist ha sido borrada por lo que su tamaño es: " + lista2.getSize());
     }
-    public static void printA(List lista){
+    public static void printList(List lista){
         Iterator iterator = lista.getIterator();
         while(iterator.hasNext()){
             System.out.println(iterator.next());
         }
-        System.out.println("-------------------");
+        System.out.println(lista.getSize());
     }
 }
+

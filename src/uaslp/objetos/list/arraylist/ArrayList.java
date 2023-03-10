@@ -65,7 +65,7 @@ public class ArrayList implements List{
 
     public void removeAll(){
         size=0;
-        for (int i=0;array[i]!=null;i++){
+        for (int i=0;array[i]!=null&&i<size;i++){
             array[i]=null;
         }
         System.out.println("Eliminado todo el arreglo");
